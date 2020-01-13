@@ -2,7 +2,15 @@
   <div id="app">
     <div class="container">
       <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="msg pt-3 pb-3 mt-3">
+            <h3>Message</h3>
+          </div>
+        </div>
         <div class="col-3">
+          <div class="msg pt-3 pb-3 mt-3">
+            <buttons></buttons>
+          </div>
           <thread-heading-list></thread-heading-list>
         </div>
         <div class="col-9">
@@ -13,16 +21,17 @@
   </div>
 </template>
 
-
 <script>
 import WatchList from "./components/WatchList";
 import ThreadHeadingList from "./components/ThreadHeadingList";
+import Buttons from "./components/Buttons";
 
 export default {
   name: "app",
   components: {
     WatchList,
-    ThreadHeadingList
+    ThreadHeadingList,
+    Buttons
   }
 };
 </script>
@@ -39,14 +48,17 @@ export default {
 body {
   background-color: #212121;
 }
+.msg {
+  background-color: #2c2c2c;
+  color: white;
+}
 .list-group-item {
-  background-color: #212121;
-  color:white;
+  background-color: #2c2c2c;
+  color: white;
 }
 .list-group-item:hover {
   background-color: #333;
-    color:white;
-
+  color: white;
 }
 </style>
 
