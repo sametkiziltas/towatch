@@ -1,15 +1,15 @@
 <template>
   <div class="item">
     <div>
-      <button class="btn btn-primary">Add</button>
+      <button class="btn btn-primary" @click="onAddClick">{{showSave ? 'Save' : 'Add New'}}</button>
     </div>
     <div>
       <button
         type="button"
         class="btn"
-        :class="changeButton[1]"
-        @click="mode = !mode"
-      >Edit: {{ changeButton[0] }}</button>
+        :class="modeChange[1]"
+        @click="onEditClick()"
+      >Edit: {{ modeChange[0] }}</button>
     </div>
   </div>
 </template>
@@ -22,13 +22,27 @@ export default {
       text: "Off"
     };
   },
+  props: {
+    showSave: {
+      type: Boolean
+    }
+  },
   computed: {
-    changeButton: function() {
+    modeChange() {
       if (this.mode) {
         return ["On", "btn-success"];
-      } else {
-        return ["Off", "btn-danger"];
       }
+      return ["Off", "btn-danger"];
+    }
+  },
+  methods: {
+    onAddClick() {
+      let type = this.showSave ? "save" : "add";
+      this.$emit("clicked", { type });
+    },
+    onEditClick() {
+      this.mode = !this.mode;
+      this.$emit("clicked", { type: "edit", mode: this.mode });
     }
   }
 };
@@ -36,7 +50,7 @@ export default {
 
 <style scoped>
 .item {
-  display: grid;
+  display: flow-root;
 }
 .item button {
   float: right;

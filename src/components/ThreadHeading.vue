@@ -1,15 +1,26 @@
 <template>
   <div class="list-group-item list-group-item-action flex-column align-items-start mb-2">
     <div class="justify-content-center">
-      <h6 class="mb-1">Head of Thread Heading</h6 >
-      <div>Last Updated:3 days ago</div>
+      <h6 class="mb-1 justify-content-left">{{ title }}</h6 >
+       <small> {{ lastUpdated }}</small>
     </div>
 
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props:{
+    title:{
+      type:String,
+      required:true
+    },
+    lastUpdated:{
+      type:String,
+      required:true
+    }
+  }
+};
 </script>
 <style scoped>
 

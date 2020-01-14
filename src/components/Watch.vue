@@ -1,25 +1,49 @@
 <template>
-  <div class="list-group-item list-group-item-action flex-column align-items-start mb-3">
+  <div class="list-group-item list-group-item-action flex-column align-items-start mb-3" v-if="url">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Head of Video</h5>
-      <small>3 days ago</small>
+      <h5 class="mb-1">{{ title }}</h5>
+      <small>{{ lastUpdated }}</small>
     </div>
     <div class="embed-container">
       <iframe
-        src="https://www.youtube.com/embed/tai_A0RwaI4"
+        :src="url"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
     </div>
-    <p
-      class="mb-1"
-    >Video açıklaması ...nec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+    <p class="mb-1">{{ desc }}</p>
+  </div>
+  <div class="list-group-item list-group-item-action flex-column align-items-start mb-3" v-else>
+    {{url}}
+    <input class="form-control mb-1" type="text" placeholder="URL"/>
+    <input class="form-control mb-1" type="text" placeholder="Head"/>
+    <input class="form-control mb-1" type="text" placeholder="Description"/>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    title: {
+      type: String
+    },
+    url: {
+      type: String,
+      required: true
+    },
+    desc: {
+      type: String
+    },
+    lastUpdated: {
+      type: String
+    },
+    showSave:{
+      type:Boolean,
+      required:true
+    }
+  },
+};
 </script>
 <style scoped>
 .embed-container {
@@ -45,5 +69,4 @@ export default {};
   display: inline;
   margin: 0 auto;
 }
-
 </style>
