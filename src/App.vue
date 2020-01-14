@@ -7,13 +7,10 @@
             <h3>Message</h3>
           </div>
         </div>
-        <div class="col-3">
-          <div class="msg pt-3 pb-3 mt-3">
-            <buttons></buttons>
-          </div>
+        <div class="col-3 mt-3">
           <thread-heading-list></thread-heading-list>
         </div>
-        <div class="col-9">
+        <div class="col-9 mt-3">
           <watch-list></watch-list>
         </div>
       </div>
@@ -24,14 +21,12 @@
 <script>
 import WatchList from "./components/WatchList";
 import ThreadHeadingList from "./components/ThreadHeadingList";
-import Buttons from "./components/Buttons";
 
 export default {
   name: "app",
   components: {
     WatchList,
     ThreadHeadingList,
-    Buttons
   }
 };
 </script>
