@@ -63,21 +63,6 @@ export default {
     Buttons
   },
   methods: {
-    clicked: function(payload) {
-      if (payload.type == "edit") {
-        return this.items;
-      } else if (payload.type == "add") {
-        this.showSave = true;
-        return this.items.splice(0, 0, {
-          title: "",
-          url: "",
-          desc: "",
-          lastUpdated: ""
-        });
-      } else if (payload.type == "save") {
-        this.showSave = false;
-      }
-    }
   }
 };
 </script>
